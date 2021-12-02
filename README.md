@@ -91,7 +91,7 @@ sudo service ssh restart
 
 check for the SFTP server
 ```
-sftp sftp@127.0.0.1
+sftp sftpuser@127.0.0.1
 ```
 It will prompt for the password, enter a password for login into the SFTP server
 Normally SSH connection by default uses port 22 but in this project, I have used port 220 for SFTP server connection.
