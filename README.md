@@ -19,6 +19,7 @@ In Ubuntu, installation steps follow.
 # Project Explanation 
 This Project creates an AWS infrastructure with the help of Terraform tool.
 The Terraform code uses module resources, The Terraform code workspace has mainly main.tf, variables.tf files and modules folder.
+
 The main.tf file contains the AWS provider section, Backend configuration, and Modules section. The backend configuration has Terraform state file is stored in the S3 bucket.
 This modules section targets different module resources which are mentioned in the main.tf file
 
@@ -94,6 +95,7 @@ sftp sftp@127.0.0.1
 ```
 It will prompt for the password, enter a password for login into the SFTP server
 Normally SSH connection by default uses port 22 but in this project, I have used port 220 for SFTP server connection.
+
 If u want to change the port edit the sshd_config file, In the sshd_config file uncomment port 22 line and change to port 220, and restart the SSH daemon 
 ```
 sudo service ssh restart
@@ -114,6 +116,7 @@ After all these above configurations are done, I have created an AMI from that i
 # Web Server Module
 It creates an EC2 instance of Ubuntu:18.04 version on top of it, Nginx web server is installed.
 In this module web server is created with an auto-scaling group with a launch template that has pre-defined user data as Nginx web server installation configuration.
+
 Auto-scaling of web servers is done by targeting by CPUutilization metric.
 
 # Job workers Module
