@@ -25,23 +25,16 @@ module "ec2_sftp" {
 
 }
 
-module "ec2_webserver" {
-  source          = "./modules/ec2_webserver"
-  security_groups = module.SG.security_groups_webserver
-  public_subnet   = element(module.vpc.public_subnet, 1 )
 
-
-
-}
 
 module "SG" {
   source = "./modules/SG"
   vpc_id = module.vpc.vpc_id
 }
 
-module "auto_scale" {
+module "web_server" {
 
-  source          = "./modules/auto_sacle"
+  source          = "./modules/web_server"
   security_groups = module.SG.security_groups_webserver
   public_subnet = element(module.vpc.public_subnet, 0)
 
