@@ -18,3 +18,19 @@ resource "aws_autoscaling_group" "worker" {
   
   }
 }
+
+
+resource "aws_autoscaling_policy" "worker" {
+  
+  name                   = "worker"
+  autoscaling_group_name = aws_autoscaling_group.worker.name
+  policy_type             = "TargetTrackingScaling"
+ 
+   target_tracking_configuration {
+    predefined_metric_specification {
+      predefined_metric_type = "ASGAverageCPUUtilization"
+    }
+
+    target_value = 40.0
+  }
+}
